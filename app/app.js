@@ -4,6 +4,8 @@ const taskRoute = require("./routes/tasks");
 const connectDB = require("./db/connect");
 const PORT = 5000;
 require("dotenv").config()
+app.use(express.json())
+app.use(express.static("./public"));
 
 // ルーティング設計
 app.use("/api/v1/tasks/", taskRoute);
@@ -16,7 +18,6 @@ const start = async () => {
     } catch (error) {
         console.log(error)
     }
-    
 }
 
 
